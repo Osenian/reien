@@ -16,20 +16,73 @@ class Grammar extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: ListView(
+                shrinkWrap: true,
                 children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text("Volver"),
+                  const SizedBox(
+                    height: 100,
+                    child: Fila(texto: "Grammar"),
+                  ),
+                  const Fila(texto: "Prueba"),
+                  Container(
+                    width: 160,
+                    height: 200,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    width: 160,
+                    height: 200,
+                    color: Colors.yellow,
+                  ),
+                  Container(
+                    width: 160,
+                    height: 200,
+                    color: Colors.orange,
                   ),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Fila extends StatelessWidget {
+  const Fila({required this.texto, super.key});
+
+  final String texto;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        children: <Widget>[
+          SizedBox(
+            width: 400,
+            child: OutlinedButton(
+              onPressed: () {
+                debugPrint('Study button pressed');
+              },
+              child: const Text("Study"),
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(texto),
+            ),
+          ),
+          SizedBox(
+            width: 400,
+            child: OutlinedButton(
+              onPressed: () {
+                debugPrint('Quiz button pressed.');
+              },
+              child: const Text('Quiz'),
+            ),
+          ),
+        ],
       ),
     );
   }
