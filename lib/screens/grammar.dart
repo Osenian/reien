@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
 class Grammar extends StatelessWidget {
@@ -64,7 +65,8 @@ class Fila extends StatelessWidget {
             width: 100,
             child: OutlinedButton(
               onPressed: () {
-                debugPrint('Study button pressed');
+                final lowercaseTexto = texto.toLowerCase();
+                Share.share('I am studying $lowercaseTexto!');
               },
               child: const Text("Study"),
             ),
@@ -77,8 +79,22 @@ class Fila extends StatelessWidget {
           SizedBox(
             width: 100,
             child: OutlinedButton(
-              onPressed: () {
-                Share.share('Perfect Score!');
+              onPressed: () async {
+                final img = await rootBundle.load('images/congratulations.png');
+                final bufferImg = img.buffer;
+                Share.shareXFiles(
+                  [
+                    XFile.fromData(
+                      bufferImg.asUint8List(
+                        img.offsetInBytes,
+                        img.lengthInBytes,
+                      ),
+                      name: 'Congratulations!',
+                      mimeType: 'image/png',
+                    ),
+                  ],
+                  subject: 'Reien Quiz Results',
+                );
               },
               child: const Text('Quiz'),
             ),
