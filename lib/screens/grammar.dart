@@ -60,7 +60,7 @@ class Fila extends StatelessWidget {
       child: Row(
         children: <Widget>[
           SizedBox(
-            width: 400,
+            width: 100,
             child: OutlinedButton(
               onPressed: () {
                 debugPrint('Study button pressed');
@@ -74,7 +74,7 @@ class Fila extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 400,
+            width: 100,
             child: OutlinedButton(
               onPressed: () {
                 debugPrint('Quiz button pressed.');
