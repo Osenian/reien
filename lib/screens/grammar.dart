@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Grammar extends StatelessWidget {
   const Grammar({super.key});
@@ -77,7 +78,7 @@ class Fila extends StatelessWidget {
             width: 100,
             child: OutlinedButton(
               onPressed: () {
-                debugPrint('Quiz button pressed.');
+                Share.share('Perfect Score!');
               },
               child: const Text('Quiz'),
             ),
