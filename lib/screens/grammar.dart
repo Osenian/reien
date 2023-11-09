@@ -104,3 +104,30 @@ class Fila extends StatelessWidget {
     );
   }
 }
+
+class AppBar extends StatelessWidget {
+  const AppBar({required this.title, super.key});
+
+  final Widget title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 56,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(color: Colors.purple[400]),
+      child: Row(
+        children: [
+          const IconButton(
+            onPressed: null,
+            icon: Icon(Icons.menu),
+            tooltip: "Menú Navegación",
+          ),
+          Expanded(
+            child: title,
+          ),
+        ],
+      ),
+    );
+  }
+}
