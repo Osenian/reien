@@ -1,31 +1,6 @@
 import 'package:flutter/material.dart';
-class AppBarGram extends StatelessWidget {
-  const AppBarGram({required this.title, super.key});
-
-  final Widget title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.purple[400]),
-      child: Row(
-        children: [
-          /*
-          const IconButton(
-            onPressed: null,
-            icon: Icon(Icons.menu),
-            tooltip: "Menú Navegación",
-          ),*/
-          Expanded(
-            child: title,
-          ),
-        ],
-      ),
-    );
-  }
-}
+import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Grammar extends StatelessWidget {
   const Grammar({super.key});
@@ -36,7 +11,7 @@ class Grammar extends StatelessWidget {
       child: Material(
         child: Column(
           children: [
-            AppBarGram(
+            AppBar(
               title: Text(
                 "Reien",
                 style: Theme.of(context).primaryTextTheme.titleLarge,
@@ -87,10 +62,14 @@ class Fila extends StatelessWidget {
       child: Row(
         children: <Widget>[
           SizedBox(
-            width: 400,
+            width: 100,
             child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.purple[400],
+              ),
               onPressed: () {
-                debugPrint('Study button pressed');
+                final lowercaseTexto = texto.toLowerCase();
+                Share.share('I am studying $lowercaseTexto!');
               },
               child: const Text("Study"),
             ),
@@ -101,13 +80,57 @@ class Fila extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 400,
+            width: 100,
             child: OutlinedButton(
-              onPressed: () {
-                debugPrint('Quiz button pressed.');
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.purple[400],
+              ),
+              onPressed: () async {
+                final img = await rootBundle.load('images/congratulations.png');
+                final bufferImg = img.buffer;
+                Share.shareXFiles(
+                  [
+                    XFile.fromData(
+                      bufferImg.asUint8List(
+                        img.offsetInBytes,
+                        img.lengthInBytes,
+                      ),
+                      name: 'Congratulations!',
+                      mimeType: 'image/png',
+                    ),
+                  ],
+                  subject: 'Reien Quiz Results',
+                );
               },
               child: const Text('Quiz'),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AppBar extends StatelessWidget {
+  const AppBar({required this.title, super.key});
+
+  final Widget title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 56,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(color: Colors.purple[400]),
+      child: Row(
+        children: [
+          const IconButton(
+            onPressed: null,
+            icon: Icon(Icons.menu),
+            tooltip: "Menú Navegación",
+          ),
+          Expanded(
+            child: title,
           ),
         ],
       ),

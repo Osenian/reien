@@ -47,6 +47,9 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple[400],
+                  ),
                   onPressed: () {
                     Navigator.push(
                       context,
