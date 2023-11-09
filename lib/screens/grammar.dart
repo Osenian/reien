@@ -20,27 +20,12 @@ class Grammar extends StatelessWidget {
             Expanded(
               child: ListView(
                 shrinkWrap: true,
-                children: <Widget>[
-                  const SizedBox(
+                children: const <Widget>[
+                  SizedBox(
                     height: 100,
                     child: Fila(texto: "Grammar"),
                   ),
-                  const Fila(texto: "Prueba"),
-                  Container(
-                    width: 160,
-                    height: 200,
-                    color: Colors.green,
-                  ),
-                  Container(
-                    width: 160,
-                    height: 200,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    width: 160,
-                    height: 200,
-                    color: Colors.orange,
-                  ),
+                  Fila(texto: "Prueba"),
                 ],
               ),
             ),
@@ -115,10 +100,12 @@ class AppBar extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.purple[400]),
       child: Row(
         children: [
-          const IconButton(
-            onPressed: null,
-            icon: Icon(Icons.menu),
-            tooltip: "Menú Navegación",
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            tooltip: "Volver",
           ),
           Expanded(
             child: title,

@@ -22,8 +22,8 @@ class Quiz extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   ElevatedButton(
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.purple[400],
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple[400],
                     ),
                     onPressed: () async {
                       final img =
@@ -68,10 +68,12 @@ class AppBar extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.purple[400]),
       child: Row(
         children: [
-          const IconButton(
-            onPressed: null,
-            icon: Icon(Icons.menu),
-            tooltip: "Menú Navegación",
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            tooltip: "Volver",
           ),
           Expanded(
             child: title,
