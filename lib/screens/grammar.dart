@@ -64,6 +64,9 @@ class Fila extends StatelessWidget {
           SizedBox(
             width: 100,
             child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.purple[400],
+              ),
               onPressed: () {
                 final lowercaseTexto = texto.toLowerCase();
                 Share.share('I am studying $lowercaseTexto!');
@@ -79,6 +82,9 @@ class Fila extends StatelessWidget {
           SizedBox(
             width: 100,
             child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.purple[400],
+              ),
               onPressed: () async {
                 final img = await rootBundle.load('images/congratulations.png');
                 final bufferImg = img.buffer;
