@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:reien/screens/quiz.dart';
 import 'package:share_plus/share_plus.dart';
 
 class Grammar extends StatelessWidget {
@@ -85,21 +85,12 @@ class Fila extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.purple[400],
               ),
-              onPressed: () async {
-                final img = await rootBundle.load('images/congratulations.png');
-                final bufferImg = img.buffer;
-                Share.shareXFiles(
-                  [
-                    XFile.fromData(
-                      bufferImg.asUint8List(
-                        img.offsetInBytes,
-                        img.lengthInBytes,
-                      ),
-                      name: 'Congratulations!',
-                      mimeType: 'image/png',
-                    ),
-                  ],
-                  subject: 'Reien Quiz Results',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const Quiz()),
+                  ),
                 );
               },
               child: const Text('Quiz'),
