@@ -2,11 +2,9 @@
 
 ## Equipo
 
-Rodrigo Torrez Queupán: Encargado de diseño.
-
-Eric Rojas Palma: Desarrollador Principal.
-
-Italo Pereda Soza: Arquitecto de Software.
+* Rodrigo Torrez Queupán: Encargado de diseño.
+* Eric Rojas Palma: Desarrollador Principal.
+* Italo Pereda Soza: Arquitecto de Software.
 
 ## Caso de Uso
 
