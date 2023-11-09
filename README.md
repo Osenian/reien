@@ -67,7 +67,7 @@ OutlinedButton(
             subject: 'Reien Quiz Results',
         );
     },
-    child: const Text('Quiz'),
+    child: const Text('Share results'),
 ),
 ```
 
