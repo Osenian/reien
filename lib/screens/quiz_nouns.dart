@@ -23,7 +23,7 @@ class QuizNouns extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text('pregunta 1'),
+                  const Text('Pregunta 1'),
                   Flexible(
                     child: ListView.builder(
                       shrinkWrap: true,
@@ -57,7 +57,7 @@ class QuizNouns extends StatelessWidget {
                       children: <Widget>[
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.purple[400],
+                            backgroundColor: Colors.purple[700],
                           ),
                           onPressed: () async {
                             final img = await rootBundle
@@ -103,7 +103,7 @@ class AppBar extends StatelessWidget {
     return Container(
       height: 56,
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.purple[400]),
+      decoration: BoxDecoration(color: Colors.purple[700]),
       child: Row(
         children: [
           IconButton(

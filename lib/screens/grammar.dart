@@ -92,10 +92,11 @@ class Fila extends StatelessWidget {
             width: 100,
             child: Padding(
               padding: const EdgeInsets.all(12),
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
+              child: FilledButton(
+                style: FilledButton.styleFrom(
                   side: const BorderSide(width: 1.0, color: Colors.black87),
-                  foregroundColor: Colors.purple[400],
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.deepOrange[700],
                 ),
                 onPressed: () {
                   final lowercaseTexto = texto.toLowerCase();
@@ -114,13 +115,14 @@ class Fila extends StatelessWidget {
             width: 100,
             child: Padding(
               padding: const EdgeInsets.all(12),
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
+              child: FilledButton(
+                style: FilledButton.styleFrom(
                   side: const BorderSide(
                     width: 1.0,
                     color: Colors.black87,
                   ),
-                  foregroundColor: Colors.purple[400],
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.green[700],
                 ),
                 onPressed: () {
                   if (texto == "Verb Tenses") {
@@ -159,7 +161,7 @@ class AppBar extends StatelessWidget {
     return Container(
       height: 56,
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.purple[400]),
+      decoration: BoxDecoration(color: Colors.purple[700]),
       child: Row(
         children: [
           IconButton(
