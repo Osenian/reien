@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reien/screens/quiz.dart';
+import 'package:reien/screens/quiz_nouns.dart';
+import 'package:reien/screens/quiz_tenses.dart';
 import 'package:share_plus/share_plus.dart';
 
 class Grammar extends StatelessWidget {
@@ -22,10 +23,51 @@ class Grammar extends StatelessWidget {
                 shrinkWrap: true,
                 children: const <Widget>[
                   SizedBox(
-                    height: 100,
-                    child: Fila(texto: "Grammar"),
+                    height: 120,
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: Colors.white70,
+                          border: Border.fromBorderSide(
+                              BorderSide(color: Colors.black, width: 2)),
+                          borderRadius: BorderRadius.all(Radius.circular(35.0)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Fila(texto: "Verb Tenses"),
+                      ),
+                    ),
                   ),
-                  Fila(texto: "Prueba"),
+                  SizedBox(
+                    height: 120,
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: Colors.white70,
+                          border: Border.fromBorderSide(
+                              BorderSide(color: Colors.black, width: 2)),
+                          borderRadius: BorderRadius.all(Radius.circular(35.0)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Fila(texto: "Nouns"),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -48,15 +90,19 @@ class Fila extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: 100,
-            child: OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.purple[400],
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(width: 1.0, color: Colors.black87),
+                  foregroundColor: Colors.purple[400],
+                ),
+                onPressed: () {
+                  final lowercaseTexto = texto.toLowerCase();
+                  Share.share('I am studying $lowercaseTexto!');
+                },
+                child: const Text("Study"),
               ),
-              onPressed: () {
-                final lowercaseTexto = texto.toLowerCase();
-                Share.share('I am studying $lowercaseTexto!');
-              },
-              child: const Text("Study"),
             ),
           ),
           Expanded(
@@ -66,19 +112,35 @@ class Fila extends StatelessWidget {
           ),
           SizedBox(
             width: 100,
-            child: OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.purple[400],
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => const Quiz()),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(
+                    width: 1.0,
+                    color: Colors.black87,
                   ),
-                );
-              },
-              child: const Text('Quiz'),
+                  foregroundColor: Colors.purple[400],
+                ),
+                onPressed: () {
+                  if (texto == "Verb Tenses") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const QuizTenses()),
+                      ),
+                    );
+                  } else if (texto == "Nouns") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const QuizNouns()),
+                      ),
+                    );
+                  }
+                },
+                child: const Text('Quiz'),
+              ),
             ),
           ),
         ],

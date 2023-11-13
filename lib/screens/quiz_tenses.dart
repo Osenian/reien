@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
-class Quiz extends StatelessWidget {
-  const Quiz({super.key});
+class QuizTenses extends StatelessWidget {
+  const QuizTenses({super.key});
 
   @override
   Widget build(BuildContext context) {
