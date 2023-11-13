@@ -75,4 +75,20 @@ Este bloque de código representa un botón que, al ser presionado, activa el pr
 
 ## Arquitectura
 
-Pendiente
+La arquitectura MVC consiste en separar la lógica de modelo, vista y controlador, esta lógica se describe de la siguiente manera:
+
+# Modelo: 
+
+El modelo se enfoca en representar los datos y manejar la lógica de la aplicación, aquí es donde se almacenan y procesan los datos, el modelo es el encargado de gestionar la funcionalidad y comportamiento de la aplicación.
+
+# Vista: 
+
+La vista es la representación visual y interfaz de usuario, su objetivo es mostrar los datos que provienen del modelo de una forma comprensible y atractiva para el usuario.
+
+# Controlador:  
+
+El controlador actúa como el intermediario entre el modelo y la vista, la función de este es manejar las interacci0ones del usuario, como por ejemplo entradas mediante botones y campos de textos, el controlador recibe estas interacciones y las envía al controlador.
+
+La aplicación de la arquitectura MVC en Flutter se puede ejemplificar de la siguiente manera:
+
+El modelo se implementa a través de las clases en Dart, estas trabajan con los datos y realizan procesamiento y operaciones con estos. Por otro lado, las vistas se construyen implementando widget que definen la interfaz de usuario, permitiendo mostrar los datos de manera visual. Finalmente, el controlador también se utiliza mediante widget, pero mediante interacciones con los usuarios de la aplicación.
