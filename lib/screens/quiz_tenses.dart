@@ -17,10 +17,47 @@ class QuizTenses extends StatelessWidget {
                 style: Theme.of(context).primaryTextTheme.titleLarge,
               ),
             ),
-            Expanded(
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 450),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    margin: const EdgeInsets.all(10),
+                    child: const Text(
+                      'Pregunta 1',
+                      style: TextStyle(fontSize: 28),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Flexible(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 4,
+                      itemBuilder: (_, index) {
+                        return Container(
+                          margin: const EdgeInsets.all(2.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.indigo.shade100, width: 2),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ListTile(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12),
+                              ),
+                            ),
+                            leading: Text('${index + 1}'),
+                            title: const Text('Respuesta'),
+                            onTap: () {},
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.purple[700],

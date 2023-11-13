@@ -23,11 +23,19 @@ class QuizNouns extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text('Pregunta 1'),
+                  Container(
+                    width: double.infinity,
+                    margin: const EdgeInsets.all(10),
+                    child: const Text(
+                      'Pregunta 1',
+                      style: TextStyle(fontSize: 28),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   Flexible(
                     child: ListView.builder(
                       shrinkWrap: true,
-                      itemCount: 3,
+                      itemCount: 4,
                       itemBuilder: (_, index) {
                         return Container(
                           margin: const EdgeInsets.all(2.0),
@@ -35,7 +43,6 @@ class QuizNouns extends StatelessWidget {
                             border: Border.all(
                                 color: Colors.indigo.shade100, width: 2),
                             borderRadius: BorderRadius.circular(12),
-                            //color:Colors.purple,
                           ),
                           child: ListTile(
                             shape: const RoundedRectangleBorder(
@@ -51,38 +58,30 @@ class QuizNouns extends StatelessWidget {
                       },
                     ),
                   ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.purple[700],
-                          ),
-                          onPressed: () async {
-                            final img = await rootBundle
-                                .load('images/congratulations.png');
-                            final bufferImg = img.buffer;
-                            Share.shareXFiles(
-                              [
-                                XFile.fromData(
-                                  bufferImg.asUint8List(
-                                    img.offsetInBytes,
-                                    img.lengthInBytes,
-                                  ),
-                                  name: 'Congratulations!',
-                                  mimeType: 'image/png',
-                                ),
-                              ],
-                              subject: 'Reien Quiz Results',
-                            );
-                          },
-                          child: const Text("Share results"),
-                        ),
-                      ],
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple[700],
                     ),
+                    onPressed: () async {
+                      final img =
+                          await rootBundle.load('images/congratulations.png');
+                      final bufferImg = img.buffer;
+                      Share.shareXFiles(
+                        [
+                          XFile.fromData(
+                            bufferImg.asUint8List(
+                              img.offsetInBytes,
+                              img.lengthInBytes,
+                            ),
+                            name: 'Congratulations!',
+                            mimeType: 'image/png',
+                          ),
+                        ],
+                        subject: 'Reien Quiz Results',
+                      );
+                    },
+                    child: const Text("Share results"),
                   ),
-                  //TextButton(onPressed: () {}, child: Text('Ship'))
                 ],
               ),
             ),
