@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:reien/screens/quiz.dart';
 import 'package:share_plus/share_plus.dart';
 
 class Grammar extends StatelessWidget {
@@ -20,27 +20,12 @@ class Grammar extends StatelessWidget {
             Expanded(
               child: ListView(
                 shrinkWrap: true,
-                children: <Widget>[
-                  const SizedBox(
+                children: const <Widget>[
+                  SizedBox(
                     height: 100,
                     child: Fila(texto: "Grammar"),
                   ),
-                  const Fila(texto: "Prueba"),
-                  Container(
-                    width: 160,
-                    height: 200,
-                    color: Colors.green,
-                  ),
-                  Container(
-                    width: 160,
-                    height: 200,
-                    color: Colors.yellow,
-                  ),
-                  Container(
-                    width: 160,
-                    height: 200,
-                    color: Colors.orange,
-                  ),
+                  Fila(texto: "Prueba"),
                 ],
               ),
             ),
@@ -85,21 +70,12 @@ class Fila extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.purple[400],
               ),
-              onPressed: () async {
-                final img = await rootBundle.load('images/congratulations.png');
-                final bufferImg = img.buffer;
-                Share.shareXFiles(
-                  [
-                    XFile.fromData(
-                      bufferImg.asUint8List(
-                        img.offsetInBytes,
-                        img.lengthInBytes,
-                      ),
-                      name: 'Congratulations!',
-                      mimeType: 'image/png',
-                    ),
-                  ],
-                  subject: 'Reien Quiz Results',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const Quiz()),
+                  ),
                 );
               },
               child: const Text('Quiz'),
@@ -124,10 +100,12 @@ class AppBar extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.purple[400]),
       child: Row(
         children: [
-          const IconButton(
-            onPressed: null,
-            icon: Icon(Icons.menu),
-            tooltip: "Menú Navegación",
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            tooltip: "Volver",
           ),
           Expanded(
             child: title,
