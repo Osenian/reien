@@ -79,16 +79,12 @@ La arquitectura MVC consiste en separar la lógica de modelo, vista y controlado
 
 ### Modelo
 
-El modelo se enfoca en representar los datos y manejar la lógica de la aplicación, aquí es donde se almacenan y procesan los datos, el modelo es el encargado de gestionar la funcionalidad y comportamiento de la aplicación.
+El modelo se enfoca en representar los datos y manejar la lógica de la aplicación. Aquí es donde se almacenan y procesan los datos, y el modelo es responsable de gestionar la funcionalidad y el comportamiento de la aplicación. En nuestro caso, son las clases que están en la carpeta `screens`, estas clases son _Home_, _Grammar_, _Fila_, _QuizTenses_ y _QuizNouns_, siendo estas dos últimas donde se encuentra la operación principal de compartir contenido a redes sociales al momento de presionar el botón “Share Result”. De forma similar, los botones “Study” de la clase _Grammar_ también pueden compartir contenido. 
 
 ### Vista
 
-La vista es la representación visual y interfaz de usuario, su objetivo es mostrar los datos que provienen del modelo de una forma comprensible y atractiva para el usuario.
+La vista es la representación visual e interfaz de usuario. Su objetivo es mostrar los datos que provienen del modelo de una forma comprensible y atractiva para el usuario. En la aplicación se puede ver al momento de utilizar diferentes Widgets como ListView, AppBar, entre otros.
 
 ### Controlador  
 
-El controlador actúa como el intermediario entre el modelo y la vista, la función de este es manejar las interacci0ones del usuario, como por ejemplo entradas mediante botones y campos de textos, el controlador recibe estas interacciones y las envía al controlador.
-
-La aplicación de la arquitectura MVC en Flutter se puede ejemplificar de la siguiente manera:
-
-El modelo se implementa a través de las clases en Dart, estas trabajan con los datos y realizan procesamiento y operaciones con estos. Por otro lado, las vistas se construyen implementando widget que definen la interfaz de usuario, permitiendo mostrar los datos de manera visual. Finalmente, el controlador también se utiliza mediante widget, pero mediante interacciones con los usuarios de la aplicación.
+El controlador actúa como intermediario entre el modelo y la vista, siendo su función manejar las interacciones del usuario, como las entradas mediante botones y campos de textos. Como se mencionó anteriormente, en la aplicación se presiona un botón que ejecuta la acción de compartir contenido a alguna red social. Esta funcionalidad la realiza el controlador, en donde recepciona la información, activa la operación de clase y finalmente lleva a cabo la acción de compartir la imagen.
