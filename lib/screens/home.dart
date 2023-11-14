@@ -11,7 +11,7 @@ class AppBar extends StatelessWidget {
     return Container(
       height: 56,
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.purple[400]),
+      decoration: BoxDecoration(color: Colors.purple[700]),
       child: Row(
         children: [
           const IconButton(
@@ -48,7 +48,7 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple[400],
+                    backgroundColor: Colors.purple[700],
                   ),
                   onPressed: () {
                     Navigator.push(
