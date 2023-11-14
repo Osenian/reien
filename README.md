@@ -13,6 +13,7 @@ El caso de uso de la aplicación consiste en la toma de quiz y estudio de inglé
 ## Diseño
 
 Para el diseño de la aplicación se tuvieron en consideración diversos factores, como lo puede ser un orden estructurado de los bloques en pantalla, que los colores presentes logren una armonia entre si y evitar asi una sobresaturación de los elementos en pantalla, asi como una disposición adecuada en la selección de preguntas y resultados, esto con el fin de mantener un mejor entendimiento.
+![WhatsApp Image 2023-11-14 at 2 34 29 AM](https://github.com/AgustinSoza13/reien/assets/57378896/7258087e-4216-48ec-9bac-eb5dab3505fd)
 
 ## Implementación
 
