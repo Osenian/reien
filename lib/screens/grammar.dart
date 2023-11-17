@@ -9,71 +9,31 @@ class Grammar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Material(
-        child: Column(
-          children: [
-            AppBar(
+      child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(56),
+            child: CustomAppBar(
               title: Text(
                 "Reien",
                 style: Theme.of(context).primaryTextTheme.titleLarge,
               ),
             ),
-            Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: const <Widget>[
-                  SizedBox(
-                    height: 120,
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: Colors.white70,
-                          border: Border.fromBorderSide(
-                              BorderSide(color: Colors.black, width: 2)),
-                          borderRadius: BorderRadius.all(Radius.circular(35.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              spreadRadius: 1,
-                              blurRadius: 1,
-                              offset: Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Fila(texto: "Verb Tenses"),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 120,
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: Colors.white70,
-                          border: Border.fromBorderSide(
-                              BorderSide(color: Colors.black, width: 2)),
-                          borderRadius: BorderRadius.all(Radius.circular(35.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              spreadRadius: 1,
-                              blurRadius: 1,
-                              offset: Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Fila(texto: "Nouns"),
-                      ),
-                    ),
-                  ),
+          ),
+          body: const SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GrammarElement(texto: "Verb Tenses"),
+                  GrammarElement(texto: "Nouns"),
+                  GrammarElement(texto: "Articles"),
+                  GrammarElement(texto: "Pronouns"),
+                  GrammarElement(texto: "Modals"),
+                  GrammarElement(texto: "Test"),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
+          )),
     );
   }
 }
@@ -151,8 +111,8 @@ class Fila extends StatelessWidget {
   }
 }
 
-class AppBar extends StatelessWidget {
-  const AppBar({required this.title, super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({required this.title, super.key});
 
   final Widget title;
 
@@ -175,6 +135,40 @@ class AppBar extends StatelessWidget {
             child: title,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class GrammarElement extends StatelessWidget {
+  final String texto;
+
+  const GrammarElement({required this.texto, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 120,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: DecoratedBox(
+          decoration: const BoxDecoration(
+            color: Colors.white70,
+            border: Border.fromBorderSide(
+              BorderSide(color: Colors.black, width: 2),
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(35.0)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                spreadRadius: 1,
+                blurRadius: 1,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Fila(texto: texto),
+        ),
       ),
     );
   }
