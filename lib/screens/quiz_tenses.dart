@@ -1,9 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
-class QuizTenses extends StatelessWidget {
+class QuizTenses extends StatefulWidget {
   const QuizTenses({super.key});
+
+  @override
+  State<QuizTenses> createState() => _QuizTensesState();
+}
+
+class _QuizTensesState extends State<QuizTenses> {
+  var _questionIndex = 0;
+  var _totalScore = 0;
+
+  final List<Map<String, Object>> _questions = [
+    {
+      'questionText': 'What is Flutter?',
+      'answers': [
+        {'text': 'Android Development Kit', 'score': -2},
+        {'text': 'IOS Development Kit', 'score': -2},
+        {'text': 'Web Development Kit', 'score': -2},
+        {
+          'text':
+              'SDK to build beautiful IOS, Android, Web & Desktop Native Apps',
+          'score': 10
+        },
+      ],
+    },
+    {
+      'questionText': 'Who created Flutter?',
+      'answers': [
+        {'text': 'Facebook', 'score': -2},
+        {'text': 'Adobe', 'score': -2},
+        {'text': 'Google', 'score': 10},
+        {'text': 'Microsoft', 'score': -2},
+      ],
+    },
+  ];
+
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
+    setState(() {
+      _questionIndex += 1;
+    });
+  }
+
+  void _resetQuiz() {
+    _questionIndex = 0;
+    _totalScore = 0;
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,71 +65,65 @@ class QuizTenses extends StatelessWidget {
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(maxHeight: 450),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.all(10),
-                    child: const Text(
-                      'Pregunta 1',
-                      style: TextStyle(fontSize: 28),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Flexible(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 4,
-                      itemBuilder: (_, index) {
-                        return Container(
-                          margin: const EdgeInsets.all(2.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.indigo.shade100, width: 2),
-                            borderRadius: BorderRadius.circular(12),
+              child: _questionIndex < _questions.length
+                  ? Column(
+                      children: [
+                        Text(
+                          _questions[_questionIndex]['questionText'] as String,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: (_questions[_questionIndex]['answers']
+                                  as List<Map<String, Object>>)
+                              .map(
+                                (answer) => ElevatedButton(
+                                  onPressed: () {
+                                    _answerQuestion(answer['score'] as int);
+                                  },
+                                  child: Text(answer['text'] as String),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ],
+                    )
+                  : Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Quiz Completed!',
+                            style: TextStyle(fontSize: 30),
                           ),
-                          child: ListTile(
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12),
+                          Text(
+                            'Your Score: $_totalScore',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Share.share(
+                                      'I scored $_totalScore on Verb Tenses!');
+                                },
+                                child: const Text('Share results'),
                               ),
-                            ),
-                            leading: Text('${index + 1}'),
-                            title: const Text('Respuesta'),
-                            onTap: () {},
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple[700],
-                    ),
-                    onPressed: () async {
-                      final img =
-                          await rootBundle.load('images/congratulations.png');
-                      final bufferImg = img.buffer;
-                      Share.shareXFiles(
-                        [
-                          XFile.fromData(
-                            bufferImg.asUint8List(
-                              img.offsetInBytes,
-                              img.lengthInBytes,
-                            ),
-                            name: 'Congratulations!',
-                            mimeType: 'image/png',
-                          ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              ElevatedButton(
+                                onPressed: _resetQuiz,
+                                child: const Text('Back'),
+                              ),
+                            ],
+                          )
                         ],
-                        subject: 'Reien Quiz Results',
-                      );
-                    },
-                    child: const Text("Share results"),
-                  ),
-                ],
-              ),
+                      ),
+                    ),
             ),
           ],
         ),
