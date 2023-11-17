@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reien/screens/grammar.dart';
 
-class AppBar extends StatelessWidget {
-  const AppBar({required this.title, super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({required this.title, super.key});
 
   final Widget title;
 
@@ -33,42 +33,47 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: [
-          AppBar(
-            title: Text(
-              "Reien",
-              style: Theme.of(context).primaryTextTheme.titleLarge,
-            ),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(56),
+        child: CustomAppBar(
+          title: Text(
+            "Reien",
+            style: Theme.of(context).primaryTextTheme.titleLarge,
           ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple[700],
+        ),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple[700],
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const Grammar()),
+                        ),
+                      );
+                    },
+                    child: const Text("Gramática"),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const Grammar()),
-                      ),
-                    );
-                  },
-                  child: const Text("Gramática"),
-                ),
-                const SizedBox(height: 20),
-                const ElevatedButton(
-                  onPressed: null,
-                  child: Text("Vocabulario (En Construcción...)"),
-                ),
-              ],
+                  const SizedBox(height: 20),
+                  const ElevatedButton(
+                    onPressed: null,
+                    child: Text("Vocabulario (En Construcción...)"),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
