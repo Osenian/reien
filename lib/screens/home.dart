@@ -1,47 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:reien/screens/grammar.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({required this.title, super.key});
-
-  final Widget title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.purple[700]),
-      child: Row(
-        children: [
-          const IconButton(
-            onPressed: null,
-            icon: Icon(Icons.menu),
-            tooltip: "Menú Navegación",
-          ),
-          Expanded(
-            child: title,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(56),
-        child: CustomAppBar(
-          title: Text(
-            "Reien",
-            style: Theme.of(context).primaryTextTheme.titleLarge,
-          ),
+      appBar: AppBar(
+        backgroundColor: Colors.purple[700],
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {},
+          tooltip: "Menú Navegación",
         ),
+        title: const Text("Reien"),
       ),
       body: Center(
         child: Column(
