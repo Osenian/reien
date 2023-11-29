@@ -51,14 +51,16 @@ class _QuizTensesState extends State<QuizTenses> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(56),
-          child: CustomAppBar(
-            title: Text(
-              "Reien",
-              style: Theme.of(context).primaryTextTheme.titleLarge,
-            ),
+        appBar: AppBar(
+          backgroundColor: Colors.purple[700],
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            tooltip: "Volver",
           ),
+          title: const Text("Reien"),
         ),
         body: Center(
           child: Column(
@@ -125,35 +127,6 @@ class _QuizTensesState extends State<QuizTenses> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({required this.title, super.key});
-
-  final Widget title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.purple[700]),
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back),
-            tooltip: "Volver",
-          ),
-          Expanded(
-            child: title,
-          ),
-        ],
       ),
     );
   }

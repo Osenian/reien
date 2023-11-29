@@ -98,32 +98,3 @@ class QuizNouns extends StatelessWidget {
     );
   }
 }
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({required this.title, super.key});
-
-  final Widget title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.purple[700]),
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back),
-            tooltip: "Volver",
-          ),
-          Expanded(
-            child: title,
-          ),
-        ],
-      ),
-    );
-  }
-}
