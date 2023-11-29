@@ -11,7 +11,7 @@ class QuizNouns extends StatelessWidget {
       child: Material(
         child: Column(
           children: [
-            AppBar(
+            CustomAppBar(
               title: Text(
                 "Reien",
                 style: Theme.of(context).primaryTextTheme.titleLarge,
@@ -92,8 +92,8 @@ class QuizNouns extends StatelessWidget {
   }
 }
 
-class AppBar extends StatelessWidget {
-  const AppBar({required this.title, super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({required this.title, super.key});
 
   final Widget title;
 

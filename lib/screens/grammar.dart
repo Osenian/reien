@@ -10,14 +10,16 @@ class Grammar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(56),
-            child: CustomAppBar(
-              title: Text(
-                "Reien",
-                style: Theme.of(context).primaryTextTheme.titleLarge,
-              ),
+          appBar: AppBar(
+            backgroundColor: Colors.purple[700],
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back),
+              tooltip: "Volver",
             ),
+            title: const Text("Reien"),
           ),
           body: const SingleChildScrollView(
             child: Center(
