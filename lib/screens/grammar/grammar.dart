@@ -28,10 +28,10 @@ class Grammar extends StatelessWidget {
                 children: <Widget>[
                   GrammarElement(texto: "Verb Tenses"),
                   GrammarElement(texto: "Nouns"),
-                  GrammarElement(texto: "Articles"),
+                  /*GrammarElement(texto: "Articles"),
                   GrammarElement(texto: "Pronouns"),
                   GrammarElement(texto: "Modals"),
-                  GrammarElement(texto: "Test"),
+                  GrammarElement(texto: "Test"),*/
                 ],
               ),
             ),

@@ -131,9 +131,13 @@ class _QuizTensesState extends State<QuizTenses> {
               if (_questionIndex < _questions.length)
                 Column(
                   children: [
-                    Text(
-                      _questions[_questionIndex]['questionText'] as String,
-                      style: const TextStyle(fontSize: 20),
+                    Container(
+                      alignment: Alignment.center,
+                      child: Text(
+                        _questions[_questionIndex]['questionText'] as String,
+                        style: const TextStyle(fontSize: 20),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     const SizedBox(
                       height: 20,
