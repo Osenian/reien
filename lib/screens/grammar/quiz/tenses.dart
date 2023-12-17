@@ -14,21 +14,83 @@ class _QuizTensesState extends State<QuizTenses> {
 
   final List<Map<String, Object>> _questions = [
     {
-      'questionText': 'Water ___ of hydrogen and oxygen.',
+      'questionText':
+          'In JavaScript, the forEach method _____ an iterative process over each element in an array.',
       'answers': [
-        {'text': 'consist', 'score': -1},
-        {'text': 'has consisted', 'score': -1},
-        {'text': 'is consisting', 'score': -1},
-        {'text': 'consists', 'score': 2},
+        {'text': 'performs', 'score': 2},
+        {'text': 'performed', 'score': -1},
+        {'text': 'performing', 'score': -1},
+        {'text': 'perform', 'score': -1},
       ],
     },
     {
-      'questionText': 'I ___ five courses this semester.',
+      'questionText':
+          'When optimizing database queries, denormalization _____ always the recommended approach; normalization, however, _____ ignored.',
       'answers': [
-        {'text': 'taken', 'score': -1},
-        {'text': 'am took', 'score': -1},
-        {'text': 'am taking', 'score': 2},
-        {'text': 'takes', 'score': -1},
+        {'text': 'is not / is', 'score': 2},
+        {'text': 'are not / are', 'score': -1},
+        {'text': 'is not / are not', 'score': -1},
+        {'text': 'are not / is', 'score': -1},
+      ],
+    },
+    {
+      'questionText':
+          'While the team members ____ on the project, one of them suddenly _____ a more efficient way to implement the feature.',
+      'answers': [
+        {'text': 'were collaborating / realized', 'score': 2},
+        {'text': 'collaborated / realizes', 'score': -1},
+        {'text': 'were collaborating / realize', 'score': -1},
+        {'text': 'collaborate / has realized', 'score': -1},
+      ],
+    },
+    {
+      'questionText':
+          'As the debugging process progresses, the team members are actively ____ and ____ errors.',
+      'answers': [
+        {'text': 'identifying / fixing', 'score': 2},
+        {'text': 'identify / fix', 'score': -1},
+        {'text': 'identifies / fixes', 'score': -1},
+        {'text': 'identified / fixed', 'score': -1},
+      ],
+    },
+    {
+      'questionText':
+          'The software update _____ several critical security vulnerabilities last month.',
+      'answers': [
+        {'text': 'addressed', 'score': 2},
+        {'text': 'addresses', 'score': -1},
+        {'text': 'addressing', 'score': -1},
+        {'text': 'will address', 'score': -1},
+      ],
+    },
+    {
+      'questionText':
+          'Last night, the team lead ____ the latest code changes to the version control system, ensuring a synchronized development environment.',
+      'answers': [
+        {'text': 'pushed', 'score': 2},
+        {'text': 'push', 'score': -1},
+        {'text': 'pushing', 'score': -1},
+        {'text': 'pushes', 'score': -1},
+      ],
+    },
+    {
+      'questionText':
+          'While Italo ______ the critical code section, a sudden power outage disrupted the entire development process.',
+      'answers': [
+        {'text': 'was debugging', 'score': 2},
+        {'text': 'debugs', 'score': -1},
+        {'text': 'is debugging', 'score': -1},
+        {'text': 'debug', 'score': -1},
+      ],
+    },
+    {
+      'questionText':
+          'The API documentation clearly states that the function _____ the authentication process before granting access to sensitive data.',
+      'answers': [
+        {'text': 'has completed', 'score': 2},
+        {'text': 'has completes', 'score': -1},
+        {'text': 'will completed', 'score': -1},
+        {'text': 'completing', 'score': -1},
       ],
     },
   ];
