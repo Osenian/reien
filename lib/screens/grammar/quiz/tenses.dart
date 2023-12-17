@@ -150,6 +150,9 @@ class _QuizTensesState extends State<QuizTenses> {
                               onPressed: () {
                                 _answerQuestion(answer['score'] as int);
                               },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.purple[700],
+                              ),
                               child: Text(answer['text'] as String),
                             ),
                           )
@@ -177,6 +180,9 @@ class _QuizTensesState extends State<QuizTenses> {
                             Share.share(
                                 'I scored $_totalScore on Verb Tenses!');
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.purple[700],
+                          ),
                           child: const Text('Share results'),
                         ),
                         const SizedBox(
@@ -184,6 +190,9 @@ class _QuizTensesState extends State<QuizTenses> {
                         ),
                         ElevatedButton(
                           onPressed: _resetQuiz,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.purple[700],
+                          ),
                           child: const Text('Back'),
                         ),
                       ],
