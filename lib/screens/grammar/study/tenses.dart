@@ -29,66 +29,79 @@ class _TensesState extends State<Tenses> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Simple Present',
                   content:
                       'The simple present says that something was true in the past, is true in the present, and will be true in the future.\nIt expresses general statements of fact and general truths.\nIt is also used to express habitual or everyday activities.\nExample: I study computer science.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Present Progressive',
                   content:
                       'The present progressive expresses an activity that is in progress at the moment of speaking.\nIt is a temporary activity that began in the past, is continuing at present, and will probably end at some point in the future.\nExample: I am studying C++ this year.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Simple Past',
                   content:
                       'The simple past indicates that an activity or situation began and ended at a particular time in the past.\nExample: I fixed the code yesterday.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Past Progressive',
                   content:
                       'The past progressive is used for an ongoing activity that already finished.\nExample: I was studying english at 8:00PM last night.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Present Perfect',
                   content:
                       'The present perfect is often used with since and for to talk about situations that began in the past and continue up to now.\nIt follows the form has/have + past participle.\nExample: I have used Python for 3 years.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Present Perfect Progressive',
                   content:
                       'The present perfect progressive expresses the duration of an aactivity that began in the past and continues in the present.\nExample: I have been using Flutter since 2023.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Past Perfect',
                   content:
                       'The past perfect expresses an activity that was complete before another activity or time in the past.\nIt is often found in more formal writing.\nExample: After everyone had left, I went to bed.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Past Perfect Progressive',
                   content:
                       'The past perfect progressive emphasizes the duration of an activity that was in progress before another activity or time in the past.\nIt is less frequent compared to other verb tenses.\nExample: Italo told me that he had been waiting for me.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Simple Future',
                   content:
                       'The simple future is used to talk about activities that have not occured yet using either will or be going to.\nExample: I will deploy into production on Friday.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Future Progressive',
                   content:
                       'The future progressive expresses an activity that will be in progress at a time in the future.\nExample: I will be contacting you shortly.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Future Perfect',
                   content:
                       'The future perfect expresses an activity that will be completed before another time or event in the future.\nExample: By the time I see you, I will have graduated.',
                 ),
+                SizedBox(height: 8),
                 TenseSection(
                   title: 'Future Perfect Progressive',
                   content:
                       'The future perfect progrerssive emphasizes the duration of an activity that will be in progress before another time or event in the future.\nExample: I will have been sleeping for two hours by the time you arrive.',
                 ),
+                SizedBox(height: 8),
               ],
             ),
           ),

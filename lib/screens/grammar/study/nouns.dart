@@ -29,16 +29,19 @@ class _NounsState extends State<Nouns> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                SizedBox(height: 8),
                 NounSection(
                   title: 'Plurals',
                   content:
                       'The plural of most nouns is formed by adding final -s.\nFinal -es is added to nouns that end in -sh, -ch, -s, -z, and -x.\nThe plural of words that end in -y is spelled -ies.\nThere are nouns with irregular plural forms.',
                 ),
+                SizedBox(height: 8),
                 NounSection(
                   title: 'Possessive Nouns',
                   content:
                       'To express possession, an apostrophe and an s is added to a singular noun.\nFor plural nouns that end in s, only the apostrophe is included.\nExamples: Italo\'s code. The engineers\' project.',
                 ),
+                SizedBox(height: 8),
               ],
             ),
           ),
