@@ -35,12 +35,12 @@ class Home extends StatelessWidget {
                         ),
                       );
                     },
-                    child: const Text("Gramática"),
+                    child: const Text("Grammar"),
                   ),
                   const SizedBox(height: 20),
                   const ElevatedButton(
                     onPressed: null,
-                    child: Text("Vocabulario (En Construcción...)"),
+                    child: Text("Vocab (Coming Soon...)"),
                   ),
                 ],
               ),

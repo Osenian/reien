@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reien/screens/grammar/quiz/nouns.dart';
 import 'package:reien/screens/grammar/quiz/tenses.dart';
-import 'package:share_plus/share_plus.dart';
+import 'package:reien/screens/grammar/study/tenses.dart';
+import 'package:reien/screens/grammar/study/nouns.dart';
 
 class Grammar extends StatelessWidget {
   const Grammar({super.key});
@@ -10,32 +11,33 @@ class Grammar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.purple[700],
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back),
-              tooltip: "Volver",
-            ),
-            title: const Text("Reien"),
+        appBar: AppBar(
+          backgroundColor: Colors.purple[700],
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            tooltip: "Volver",
           ),
-          body: const SingleChildScrollView(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  GrammarElement(texto: "Verb Tenses"),
-                  GrammarElement(texto: "Nouns"),
-                  /*GrammarElement(texto: "Articles"),
+          title: const Text("Reien"),
+        ),
+        body: const SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GrammarElement(texto: "Verb Tenses"),
+                GrammarElement(texto: "Nouns"),
+                /*GrammarElement(texto: "Articles"),
                   GrammarElement(texto: "Pronouns"),
                   GrammarElement(texto: "Modals"),
                   GrammarElement(texto: "Test"),*/
-                ],
-              ),
+              ],
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -61,10 +63,23 @@ class Fila extends StatelessWidget {
                   backgroundColor: Colors.deepOrange[700],
                 ),
                 onPressed: () {
-                  final lowercaseTexto = texto.toLowerCase();
-                  Share.share('I am studying $lowercaseTexto!');
+                  if (texto == "Verb Tenses") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const Tenses()),
+                      ),
+                    );
+                  } else if (texto == "Nouns") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const Nouns()),
+                      ),
+                    );
+                  }
                 },
-                child: const Text("Study"),
+                child: const Text('Study'),
               ),
             ),
           ),
