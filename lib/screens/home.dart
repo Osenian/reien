@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reien/screens/grammar.dart';
+import 'package:reien/screens/grammar/grammar.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

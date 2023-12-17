@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reien/screens/quiz_nouns.dart';
-import 'package:reien/screens/quiz_tenses.dart';
+import 'package:reien/screens/grammar/quiz/nouns.dart';
+import 'package:reien/screens/grammar/quiz/tenses.dart';
 import 'package:share_plus/share_plus.dart';
 
 class Grammar extends StatelessWidget {
